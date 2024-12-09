@@ -1,6 +1,6 @@
 #!/bin/sh
-ZIP_PATH="model/apec-viettts-model.zip"
-TAR_PATH="model/apec-viettts.tar"
+ZIP_PATH="docker_images/apec-viettts-model.zip"
+TAR_PATH="docker_images/apec-viettts.tar"
 
 echo "Extracting $ZIP_PATH ..."
 tar -xf $ZIP_PATH

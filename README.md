@@ -15,7 +15,7 @@ git clone https://github.com/baole1998/fourier-tts
 <https://drive.google.com/file/d/1iyaR2WrRpUCPNhY69fxXHxPg7LjexIUM/view?usp=drive_link>
 
 ```
-mv /download/apec-viettts-model.zip /model
+mv /download/apec-viettts-model.zip /docker_images
 ```
 
 ## First time deploy
