@@ -1,0 +1,37 @@
+services:
+  tts:
+    image: apec-viettts:latest
+    hostname: fourier-viettts
+    environment:
+      - GRADIO_SHARE=True
+    entrypoint: ["python", "app.py"]
+    platform: "linux/amd64"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4g
+          cpus: "4.0"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - tts-app-network
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    restart: unless-stopped
+    depends_on:
+      - tts
+    networks:
+      - tts-app-network
+
+networks:
+  tts-app-network:
+    name: tts-app-network
